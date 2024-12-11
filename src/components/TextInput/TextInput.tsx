@@ -10,6 +10,7 @@ type TextInputProps = {
   classname?: string;
   error?: boolean;
   isValid?: boolean;
+  isFullWidth?: boolean;
 };
 
 export const TextInput = ({
@@ -22,10 +23,11 @@ export const TextInput = ({
   value,
   error,
   isValid,
+  isFullWidth,
   ...inputProps
 }: InputHTMLAttributes<HTMLInputElement> & TextInputProps) => {
   return (
-    <Styled.InputWrapper>
+    <Styled.InputWrapper $isFullWidth={!!isFullWidth}>
       {!!label && <Styled.Label htmlFor={name}>{label}</Styled.Label>}
       <Styled.Input
         {...inputProps}
@@ -37,6 +39,7 @@ export const TextInput = ({
         placeholder={placeholder}
         $error={!!error}
         $isValid={!!isValid}
+        $isFullWidth={!!isFullWidth}
       />
     </Styled.InputWrapper>
   );

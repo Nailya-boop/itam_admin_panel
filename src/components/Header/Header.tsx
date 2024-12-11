@@ -4,17 +4,19 @@ import { Link } from '../Link';
 import { HeaderLink } from '../../types';
 import { ConfigProvider, Tabs } from 'antd';
 import type { TabsProps } from 'antd';
-import IconBell from '@src/assets/images/icon-bell.svg?react';
 import { UserInfo } from './components/UserInfo';
+import { useNavigate } from 'react-router-dom';
 
 type HeaderProps = {
   links?: HeaderLink[];
   tabs?: TabsProps['items'];
   activeTab?: string;
   onChangeTab?: (tab: string) => void;
+  isLoggedIn?: boolean;
 };
 
-export const Header = ({ tabs, activeTab, links, onChangeTab = () => undefined }: HeaderProps) => {
+export const Header = ({ tabs, activeTab, links, onChangeTab = () => undefined, isLoggedIn }: HeaderProps) => {
+  const navigator = useNavigate();
   return (
     <ConfigProvider
       theme={{
@@ -39,13 +41,15 @@ export const Header = ({ tabs, activeTab, links, onChangeTab = () => undefined }
             <Styled.Title>Itam</Styled.Title>
             {!!tabs?.length && <Tabs activeKey={activeTab} items={tabs} onChange={onChangeTab} centered />}
           </Styled.Group>
-          <Styled.Group>
-            <IconBell />
+          {!!isLoggedIn && (
+            <Styled.Group>
+            <Styled.NotificationIcon />
             <UserInfo />
           </Styled.Group>
+          )}
         </Styled.Nav>
         {!!links?.length && <Styled.Links>
-          {links.map(({ title }) => (<Link key='title' title={title} />))}
+          {links.map(({ title, path }) => (<Link key='title' title={title} onClick={()=>{navigator(path)}}/>))}
         </Styled.Links>}
       </Styled.Container>
     </ConfigProvider>

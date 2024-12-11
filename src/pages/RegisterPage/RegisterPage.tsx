@@ -9,14 +9,14 @@ import { PrimaryCheckbox } from '../../components/PrimaryCheckbox';
 export const RegisterPage = () => {
   return (
     <Styled.Container>
-      <Header links={[{ title: 'Вернуться назад' }]} />
-      <Content title='Регистрация' links={[{ title: 'Уже есть аккаунт? Войти' }]}>
+      <Header links={[{ title: 'Вернуться назад', path: '/main' }]} />
+      <Content title='Регистрация' links={[{ title: 'Уже есть аккаунт? Войти', path: '/login' }]}>
         <Styled.Form autoComplete='off'>
-          <TextInput id='name' placeholder='ФИО' autoComplete='off' />
-          <TextInput id='email' placeholder='Номер телефона' autoComplete='off' isValid />
-          <TextInput id='email' type='email' placeholder='Почта' autoComplete='off' />
-          <TextInput id='password' type='password' placeholder='Пароль' autoComplete='off' />
-          <TextInput id='password' type='password' placeholder='Повторите пароль' autoComplete='off' />
+          <TextInput id='name' placeholder='ФИО' autoComplete='off' isFullWidth/>
+          <TextInput id='email' placeholder='Номер телефона' autoComplete='off' isValid isFullWidth/>
+          <TextInput id='email' type='email' placeholder='Почта' autoComplete='off' isFullWidth/>
+          <TextInput id='password' type='password' placeholder='Пароль' autoComplete='off' isFullWidth/>
+          <TextInput id='password' type='password' placeholder='Повторите пароль' autoComplete='off' isFullWidth/>
           <PrimaryCheckbox id='accept' name='accept' label='Согласен с политикой сайта' />
           <PrimaryButton type='submit' title='Зарегистрироваться' isFullWidth />
         </Styled.Form>

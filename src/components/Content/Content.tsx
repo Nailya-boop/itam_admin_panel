@@ -2,6 +2,7 @@ import React, { PropsWithChildren } from 'react';
 import { HeaderLink } from '../../types';
 import * as Styled from './Content.styled';
 import { Link } from '../Link';
+import { useNavigate } from 'react-router-dom';
 
 type ContentProps = {
   title?: string;
@@ -9,6 +10,7 @@ type ContentProps = {
 };
 
 export const Content = ({ title, links, children }: PropsWithChildren<ContentProps>) => {
+  const navigator = useNavigate();
   return (
     <Styled.Container>
       <Styled.FormContainer>
@@ -16,7 +18,7 @@ export const Content = ({ title, links, children }: PropsWithChildren<ContentPro
         {children}
       </Styled.FormContainer>
       {!!links?.length && <Styled.Links>
-        {links.map(({ title }) => <Link key={title} title={title} />)}
+        {links.map(({ title, path }) => <Link key={title} title={title} onClick={()=>{navigator(path)}}/>)}
       </Styled.Links>}
     </Styled.Container>
   );

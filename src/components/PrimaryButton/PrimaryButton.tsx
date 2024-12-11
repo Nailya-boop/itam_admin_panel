@@ -6,8 +6,8 @@ type PrimaryButtonProps = {
   isFullWidth?: boolean;
 };
 
-export const PrimaryButton = ({ title, isFullWidth }: ButtonHTMLAttributes<HTMLButtonElement> & PrimaryButtonProps) => {
+export const PrimaryButton = ({ title, isFullWidth, ...props }:React.HTMLAttributes<HTMLElement> & ButtonHTMLAttributes<HTMLButtonElement> & PrimaryButtonProps) => {
   return (
-    <Styled.Button $isFullWidth={!!isFullWidth}>{title}</Styled.Button>
+    <Styled.Button $isFullWidth={!!isFullWidth} {...props}>{title}</Styled.Button>
   );
 };

@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import * as Styled from './Link.styled';
 
 type LinkProps = {
   title: string;
 };
 
-export const Link = ({ title }: LinkProps) => {
+export const Link = ({ title, ...props }:React.HTMLAttributes<HTMLElement> & LinkProps & ButtonHTMLAttributes<HTMLButtonElement>) => {
   return (
-    <Styled.Text>{title}</Styled.Text>
+    <Styled.Text {...props}>{title}</Styled.Text>
   );
 };

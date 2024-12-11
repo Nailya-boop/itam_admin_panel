@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import IconBell from '@src/assets/images/icon-bell.svg?react';
 
 export const Container = styled.header`
   display: flex;
@@ -50,4 +51,13 @@ export const Links = styled.div`
   gap: 8px;
   width: 100%;
   padding: 18px 34px;
+`;
+
+export const NotificationIcon = styled(IconBell)`
+  transition: opacity 0.3s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
 `;

@@ -6,6 +6,10 @@ export const Container = styled.div`
   align-items: flex-start;
   gap: 9px;
   margin-left: 19px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const Avatar = styled.img`

@@ -11,8 +11,8 @@ export const MainPage = () => {
       <Styled.Title>ITAM</Styled.Title>
       <Content>
         <Styled.Container>
-          <PrimaryButton type='button' title='Войти' onClick={() => {navigate('/login')}}/>
-          <PrimaryButton type='button' title='Зарегистрироваться' onClick={() => navigate('/singin')}/>
+          <PrimaryButton type='button' title='Войти' isFullWidth onClick={() => {navigate('/login')}}/>
+          <PrimaryButton type='button' title='Зарегистрироваться' isFullWidth onClick={() => navigate('/singin')}/>
         </Styled.Container>
       </Content>
     </Styled.Wrapper>

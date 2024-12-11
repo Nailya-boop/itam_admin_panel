@@ -6,7 +6,11 @@ import { SecondaryButton } from '@src/components/SecondaryButton';
 import * as Styled from './AddCourse.styled';
 import { TextInput } from '@src/components/TextInput';
 
-export const AddCourse = () => {
+interface AddCourseProps {
+  setActive: (active: boolean) => void;
+}  
+
+export const AddCourse: React.FC<AddCourseProps> = ({setActive}) => {
   return (
     <Container>
       <Styled.Form>
@@ -29,8 +33,8 @@ export const AddCourse = () => {
         <Styled.TextUnderline>добавить ссылку</Styled.TextUnderline>
       </Styled.Materials>
       <Styled.Footer>
-        <SecondaryButton title='Отмена' />
-        <SecondaryButton title='Сохранить' />
+        <SecondaryButton title='Отмена' onClick={()=>{setActive(false);}}/>
+        <SecondaryButton title='Сохранить' onClick={()=>{setActive(false);}}/>
       </Styled.Footer>
     </Container>
   );

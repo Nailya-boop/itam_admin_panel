@@ -1,5 +1,6 @@
 export type HeaderLink = {
   title: string;
+  path: string;
 };
 
 export type LabeledValue = {
